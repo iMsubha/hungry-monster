@@ -1,26 +1,19 @@
 function searchButton(){
-    console.log("clicked");
     const mealSearch = document.getElementById("meal").value;
-    console.log(mealSearch);
+    document.getElementById("meal").value="";
     getMealData(mealSearch);
 }
 function getMealData(mealName){
-   fetch('https://www.themealdb.com/api/json/v1/1/search.php?s')
+   const url = `https://www.themealdb.com/api/json/v1/1/search.php?s`;
+   fetch(url)
    .then(res => res.json())
    .then(data => {
        const meals =data.meals;
-       console.log(meals);
        const mealsDiv = document.getElementById('meals');
        const mealsDetailsDiv = document.getElementById('meals-details');
        for (let i = 0; i < meals.length; i++) {
            const mealName = meals[i].strMeal;
            const mealImage = meals[i].strMealThumb;
-           const ingredient1 = meals[i].strIngredient1;
-           const ingredient2 = meals[i].strIngredient2;
-           const ingredient3 = meals[i].strIngredient3;
-           const ingredient4 = meals[i].strIngredient4;
-           const ingredient5 = meals[i].strIngredient5;
-
            const mealDiv = document.createElement('meal-thumbnail')
            mealsDiv.classList =`container ml-4`
            const mealsInfo=` 
@@ -32,10 +25,7 @@ function getMealData(mealName){
            mealsDiv.appendChild(mealDiv);
        }  
    })
-
-   
 }
-
 function displayMealDetails(name){
   const url=  `https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`;
  fetch(url)
@@ -46,15 +36,17 @@ function displayMealDetails(name){
 const renderMealInfo = meal =>{
     console.log(meal);
     const mealDetailsDiv = document.getElementById('meal-details')
+    mealDetailsDiv.classList="d-flex flex-column justify-content-center align-items-center mb-3"
     mealDetailsDiv.innerHTML=`
-           <img class="meal-details-image d-flex justify-content-center" src=${meal.strMealThumb}  alt="food-image">
-           <h3 class="mt-4">${meal.strMeal}</h3>
-           <p class="font-weight-bold">Ingredients</p>
-           <ul class="font-weight-light">
-               <li>${meal.strIngredient1}</li>
-               <li>${meal.strIngredient2}</li>
-               <li>${meal.strIngredient3}</li>
-               <li>${meal.strIngredient4}</li>
-               <li>${meal.strIngredient5}</li> 
-           </ul>`
+           <img class="meal-details-image " src=${meal.strMealThumb}  alt="food-image">
+            <h3 class="mt-4">${meal.strMeal}</h3>
+            <p class="font-weight-bold">Ingredients</p>
+            <ul class="font-weight-light list-checkbox">
+            <li>${meal.strIngredient1}</li>
+            <li>${meal.strIngredient2}</li>
+            <li>${meal.strIngredient3}</li>
+            <li>${meal.strIngredient4}</li>
+            <li>${meal.strIngredient5}</li> 
+           </ul>
+           `
 }

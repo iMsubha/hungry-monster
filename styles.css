@@ -37,8 +37,8 @@
     width: 40%;
     border-radius: 10px;
 }
-ul{
+.list-checkbox{
     list-style-image: url('./icon/check-square-solid.svg');
     color: #6C6C6C;
-    font-size: 16px;;
+    font-size: 16px;
 }
