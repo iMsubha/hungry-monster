@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+.body{
+    color: #252525;
+    font-family: 'Inter', sans-serif;
+}
+.search{
+    border-radius: 20px;
+}
+.search-btn{
+    background-color: #F06C4E;  
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+#meals{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 1rem;
+}
+.meal-thumb-img{
+    width: 210px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.meal-thumb{
+    width: 210px;
+    height: 260px;
+    border-radius: 10px;
+}
+.meal-title{
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+    color: #252525;
+    font-family: 'Inter', sans-serif;
+}
+.meal-details-image{
+    width: 40%;
+    border-radius: 10px;
+}
+ul{
+    list-style-image: url('./icon/check-square-solid.svg');
+    color: #6C6C6C;
+    font-size: 16px;;
+}
