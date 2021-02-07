@@ -3,6 +3,7 @@ function searchButton(){
     document.getElementById("meal").value="";
     getMealData(mealSearch);
 }
+// fetching meal items and display 
 function getMealData(mealName){
    const url = `https://www.themealdb.com/api/json/v1/1/search.php?s`;
    fetch(url)
@@ -10,7 +11,6 @@ function getMealData(mealName){
    .then(data => {
        const meals =data.meals;
        const mealsDiv = document.getElementById('meals');
-       const mealsDetailsDiv = document.getElementById('meals-details');
        for (let i = 0; i < meals.length; i++) {
            const mealName = meals[i].strMeal;
            const mealImage = meals[i].strMealThumb;
@@ -26,13 +26,15 @@ function getMealData(mealName){
        }  
    })
 }
+
+//display single meals
 function displayMealDetails(name){
   const url=  `https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`;
  fetch(url)
  .then(res => res.json())
  .then(data => renderMealInfo(data.meals[0]));
 }
-
+//create html for single meal item 
 const renderMealInfo = meal =>{
     console.log(meal);
     const mealDetailsDiv = document.getElementById('meal-details')
