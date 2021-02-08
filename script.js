@@ -42,7 +42,7 @@ function displayMealDetails(name){
 }
 //create html for single meal item 
 const renderMealInfo = meal =>{
-    console.log(meal);
+    //console.log(meal);
     const mealDetailsDiv = document.getElementById('meal-details')
     mealDetailsDiv.classList="d-flex flex-column justify-content-center align-items-center mb-3"
     mealDetailsDiv.innerHTML=`
