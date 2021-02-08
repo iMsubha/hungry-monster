@@ -4,14 +4,19 @@ function searchButton(){
     getMealData(mealSearch);
 }
 // fetching meal items and display 
-function getMealData(mealName){
+function getMealData(searchMeal){
    const url = `https://www.themealdb.com/api/json/v1/1/search.php?s`;
    fetch(url)
    .then(res => res.json())
    .then(data => {
        const meals =data.meals;
        const mealsDiv = document.getElementById('meals');
+
        for (let i = 0; i < meals.length; i++) {
+           let meal = meals[i].strMeal.toLowerCase();
+           let firstLetter = searchMeal[0].toLowerCase();
+
+           if(meal.includes(firstLetter)){
            const mealName = meals[i].strMeal;
            const mealImage = meals[i].strMealThumb;
            const mealDiv = document.createElement('meal-thumbnail')
@@ -23,6 +28,7 @@ function getMealData(mealName){
                 </div>`
            mealDiv.innerHTML = mealsInfo;
            mealsDiv.appendChild(mealDiv);
+           }
        }  
    })
 }
