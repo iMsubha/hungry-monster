@@ -18,8 +18,7 @@
 }
 .meal-thumb-img{
     width: 210px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-radius: 10px;
 }
 .meal-thumb{
     width: 210px;
@@ -28,8 +27,7 @@
 }
 .meal-title{
     font-weight: 600;
-    font-size: 20px;
-    text-align: center;
+    font-size: 16px;
     color: #252525;
     font-family: 'Inter', sans-serif;
 }

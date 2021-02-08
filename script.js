@@ -5,7 +5,7 @@ const searchButton= () =>{
 }
 // fetching meal items and display 
 const getMealData = searchMeal => { 
-   const url = `https://www.themealdb.com/api/json/v1/1/search.php?s`;
+   const url = `https://www.themealdb.com/api/json/v1/1/filter.php?i`;
    fetch(url)
    .then(res => res.json())
    .then(data => {
@@ -27,7 +27,7 @@ const getMealData = searchMeal => {
             const mealsInfo=` 
                     <div onclick="displayMealDetails('${mealName}')">
                     <img id="meal-thumb-img" class="meal-thumb-img" src=${mealImage} alt="food-image">
-                    <h3 id="meal-title" class="meal-title mt-2 pt-1">${mealName}</h3>
+                    <h3 id="meal-title" class="meal-title mt-2 pt-1 pl-3">${mealName}</h3>
                     </div>`
             mealDiv.innerHTML = mealsInfo;
             mealsDiv.appendChild(mealDiv);
